@@ -63,8 +63,11 @@ Available Tools:
 `;
 
 function getWeatherInfo(city:string):string {
-  return "45 Degree C";
+  return `${city} has 45 Degree C`;
 }
+const Tools = {
+  getWeatherInfo: getWeatherInfo
+};
 const system_prompt_2 = `
 In the start phase, user gives a query to you.
 Then, you THINK how to resolve that query atleast 3-4 times and make sure that
@@ -106,3 +109,49 @@ Output Format:
 chatCall("what is teh temperature of Delhi ?")
   .then()
   .catch((error) => console.log(`erorr is ${error}`));
+
+//automate the task
+//eslint disable
+const messages = [
+  {
+    role: 'system',
+    content:system_prompt_2
+  }
+];
+const userQuery = '';
+messages.push({ 'role': 'user', 'content': userQuery });
+while (true) {
+  try {
+    const response = await client.chat.completions.create({
+      model: model,
+      response_format: { type: "json_object" },
+      messages: messages,
+    });
+    messages.push({ role: 'assistant', content: response?.choices[0]?.message.content || 'no response' });
+    if (response) {
+      const parsed_response = JSON.parse(response.choices[0].message.content);
+      if (parsed_response.step && parsed_response.step === 'think') {
+        console.log(`🧠: ${parsed_response.content}`);
+        continue;
+      }
+      if (parsed_response.step && parsed_response.step === 'output') {
+        console.log(`🤖: ${parsed_response.content}`);
+        break;
+      }
+      if (parsed_response.step && parsed_response.step === 'action') {
+        const tool = parsed_response.tool;
+        const input = parsed_response.input;
+        console.log(`⚙️: Tool call ${tool}: (${input})`)
+        const returnedValue = Tools.getWeatherInfo(input);
+        console.log(`⚙️: Tool called ${tool}: (${input}) value is ${returnedValue}`);
+        messages.push({
+          "role": "assistant",
+          "content": JSON.stringify({ "step": "observe", content: returnedValue })
+        })
+        continue;
+      }
+    }
+  } catch (error) {
+    
+  }
+}
