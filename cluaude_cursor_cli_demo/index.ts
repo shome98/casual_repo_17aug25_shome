@@ -17,14 +17,20 @@ async function chatCall(prompt: string) {
   try {
     const completion = await client.chat.completions.create({
       model: model,
+      response_format: { type: "json_object" },
       messages: [
         {
           role: "system",
-          content:system_prompt_2,
-      },
+          content: system_prompt_2,
+        },
         {
           role: "user",
-          content: prompt,
+          content: "what is weather of Delhi?"
+        },
+        {
+          role: "assistant",
+          content:
+           '{"role":"user","content":"what is weather of Delhi?"}',
         },
       ],
     });
@@ -97,6 +103,6 @@ Output Example:
 Output Format:
 { "step": "string", "tool": "string", "input": "string", "content": "string" }
 `;
-chatCall("what is teh temperature of kolkata ?")
+chatCall("what is teh temperature of Delhi ?")
   .then()
   .catch((error) => console.log(`erorr is ${error}`));
