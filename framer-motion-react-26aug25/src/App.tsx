@@ -5,19 +5,20 @@ function App() {
     <>
       <h1>Hi</h1>
       <motion.div
+        initial={{
+          x:20
+        }}
         animate={{
-          x: 100,
-          rotate: 40000,
+          x: 500,
+          rotate:360
         }}
         transition={{
-          duration: 30,
+          duration: 3,
+          delay: 1,
+          repeat:5
         }}
         className="box"></motion.div>
       <motion.div
-        animate={{
-          y: 70,
-          scale:0.5
-        }}
         className="circle"
       ></motion.div>
     </>
