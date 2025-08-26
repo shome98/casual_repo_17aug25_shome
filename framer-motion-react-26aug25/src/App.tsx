@@ -12,7 +12,8 @@ function App() {
         className="box"></motion.div>
       <motion.div
         animate={{
-          y:70
+          y: 70,
+          scale:0.5
         }}
         className="circle"
       ></motion.div>
