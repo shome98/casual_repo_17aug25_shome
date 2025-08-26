@@ -5,16 +5,8 @@ function App() {
     <>
       <h1>Hi</h1>
       <motion.div
-        animate={{
-          x: [0,500,500,0,0],
-          y: [0, 0, 300, 300, 0],
-          rotate:[0,360,0,-360,0]
-        }}
-        transition={{
-          duration: 4,
-          delay: 1,
-          repeat:3
-        }}
+        whileHover={{ backgroundColor: 'green' }}
+        whileTap={{scale:0.5}}
         className="box"></motion.div>
       <motion.div
         className="circle"
