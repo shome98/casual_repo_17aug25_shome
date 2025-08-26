@@ -7,7 +7,8 @@ function App() {
       <motion.div
         animate={{
           x: [0,500,500,0,0],
-          y:[0,0,300,300,0],
+          y: [0, 0, 300, 300, 0],
+          rotate:[0,360,0,-360,0]
         }}
         transition={{
           duration: 4,
