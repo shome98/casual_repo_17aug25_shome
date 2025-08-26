@@ -12,3 +12,16 @@ html,body{
 body{
   background-color: #111;
 }
+.box{
+  height: 300px;
+  width: 300px;
+  background-color: crimson;
+  border: 3px solid #fff;
+}
+.circle{
+  height: 300px;
+  width: 300px;
+  background-color: skyblue;
+  border-radius: 50%;
+  border: 3px solid #fff;
+}
