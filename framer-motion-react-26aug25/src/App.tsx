@@ -7,7 +7,10 @@ function App() {
       <motion.div
         animate={{
           x: 100,
-          rotate:36
+          rotate: 40000,
+        }}
+        transition={{
+          duration: 30,
         }}
         className="box"></motion.div>
       <motion.div
