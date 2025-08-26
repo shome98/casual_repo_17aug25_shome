@@ -5,12 +5,9 @@ function App() {
     <>
       <h1>Hi</h1>
       <motion.div
-        whileHover={{ backgroundColor: 'green' }}
-        whileTap={{scale:0.5}}
+        drag
+        dragConstraints={{ left: 0, top: 0, right: 500, bottom: 500 }}
         className="box"></motion.div>
-      <motion.div
-        className="circle"
-      ></motion.div>
     </>
   )
 }
