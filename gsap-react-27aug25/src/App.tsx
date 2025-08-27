@@ -5,12 +5,26 @@ import { useRef } from "react";
 function App() {
   const gsapref = useRef<HTMLDivElement>(null);
   useGSAP(() => {
-   gsap.to(gsapref.current,{x:500,duration:3,delay:1,rotate:720})
+    gsap.from('.box-gradient', {
+      y: 300,
+      opacity: 0,
+      rotate: 360,
+      duration: 1,
+      delay:1
+   })
   });
   return (
     <>
-      <h1>hi </h1>
-      <div ref={ gsapref} className="box"></div>
+      <main>
+        <div className="container">
+          <div className="box-gradient"></div>
+          <div className="circle-gradient"></div>
+        </div>
+        <div className="container">
+          <div className="box-gradient"></div>
+          <div className="circle-gradient"></div>
+        </div>
+      </main>
     </>
   )
 }
