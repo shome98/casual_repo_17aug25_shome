@@ -17,3 +17,8 @@ main{
 @utility container{
   @apply p-[20px] border-[3px] border-solid border-[#fff]
 }
+@layer components{
+  .button-green{
+    @apply p-[20px] rounded-full bg-gradient-to-r from-green-300 to-green-700 border-none text-black font-semibold text-2xl
+  }
+}
