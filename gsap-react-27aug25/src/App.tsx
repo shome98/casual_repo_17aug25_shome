@@ -19,12 +19,24 @@ function App() {
       rotate: rotate
     });
   };
-  useGSAP(xAnimate, [x]);
+  const { contextSafe } = useGSAP();
+  const animate = contextSafe(() => {
+    gsap.to(boxRef.current, {
+      x: 200,
+      duration: 2,
+      rotate: 720
+    });
+  });
+    
   
+   
   return (
     <>
       <button onClick={handleAnimate} className="button-green">
         Animate
+      </button>
+      <button onClick={animate} className="button-green">
+        Safely animate
       </button>
       <main>
         <div ref={boxRef} className="box-gradient">
