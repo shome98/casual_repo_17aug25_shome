@@ -1,0 +1,24 @@
+@import "tailwindcss";
+html,body{
+  @apply min-h-full min-w-full bg-gray-800 text-gray-100 p-4 font-mono
+}
+main{
+  @apply h-[100vh] w-[100%] bg-inherit p-[20px] flex items-center justify-center gap-2
+}
+@utility box{
+  @apply h-[300px] w-[300px] bg-red-700 rounded
+}
+@utility box-gradient{
+  @apply h-[300px] w-[300px] m-[20px] rounded-lg bg-gradient-to-br from-pink-500 to-red-700
+}
+@utility circle-gradient{
+  @apply h-[300px] w-[300px] m-[20px] rounded-full bg-gradient-to-br from-blue-200 to-slate-600
+}
+@utility container{
+  @apply p-[20px] border-[3px] border-solid border-[#fff]
+}
+@layer components{
+  .button-green{
+    @apply p-[20px] rounded-full bg-gradient-to-r from-green-300 to-green-700 border-none text-black font-semibold text-2xl
+  }
+}
