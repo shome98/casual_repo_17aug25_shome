@@ -3,18 +3,23 @@ import gsap from "gsap";
 import { useRef, useState } from "react";
 
 function App() {
-  const [circle, SetCircle] = useState(0);
-  const random = gsap.utils.random(-500, 500,10);
+  const [x, setX] = useState(0);
+  const [rotate, setRotate] = useState(0);
+  const random = gsap.utils.random(-500, 500, 10);
+  const rotateRandom = gsap.utils.random(-360, 360, 30);
+  const boxRef = useRef<HTMLDivElement>(null);
   const handleAnimate = () => {
-    SetCircle(random);
+    setX(random);
+    setRotate(rotateRandom);
   };
-  const circleAnimate = () => {
-    gsap.to('.circle-gradient', {
-      x: circle,
-      duration: 0.5
-    })
+  const xAnimate = () => {
+    gsap.to(boxRef.current, {
+      x: x,
+      duration: 2,
+      rotate: rotate
+    });
   };
-  useGSAP(circleAnimate, [circle]);
+  useGSAP(xAnimate, [x]);
   
   return (
     <>
@@ -22,7 +27,12 @@ function App() {
         Animate
       </button>
       <main>
-        <div className="circle-gradient"></div>
+        <div ref={boxRef} className="box-gradient">
+          <img
+            src="https://www.shutterstock.com/image-photo/beautiful-golden-retriever-cute-puppy-600nw-2526542701.jpg"
+            alt="dog-image"
+          />
+        </div>
       </main>
     </>
   );
