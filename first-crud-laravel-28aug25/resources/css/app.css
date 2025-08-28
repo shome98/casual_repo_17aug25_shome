@@ -12,3 +12,26 @@
 html,body{
     @apply bg-gray-800 text-gray-200
 }
+@utility small-box-col{
+    @apply flex flex-col items-center justify-center border-4 p-4 border-gray-400
+}
+@layer components{
+  .button-blue{
+    @apply p-4 rounded-full bg-gradient-to-r from-blue-400 to-blue-700 border-none text-gray-200 font-semibold text-xl
+  }
+  .input-normal{
+    @apply p-2 text-black font-semibold text-xl bg-gray-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500
+  }
+  .label-normal{
+    @apply text-gray-200 font-semibold text-xl
+  }
+  .flex-col-2{
+    @apply flex flex-col gap-2
+  }
+  .button-blue-2{
+    @apply mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors
+  }
+  .box-2{
+    @apply max-w-md mx-auto space-y-4 border-4 p-4 border-gray-400
+  }
+}
