@@ -1,6 +1,7 @@
 <x-layout title="Welcome😊">
     <h1 class="text-3xl text-center mb-6">Welcome to CRUD App</h1>
-    <form method="POST">
+    <form method="POST" action='/register'>
+        @csrf
         <div class="box-2">
             <div class="flex-col-2">
                 <label for="name" class="label-normal">Name</label>
