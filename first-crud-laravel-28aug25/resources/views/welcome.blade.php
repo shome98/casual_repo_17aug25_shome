@@ -18,7 +18,7 @@
                 </div>
                 <div class="flex-col-2">
                     <label for="body" class="label-normal">Body</label>
-                    <textarea id="body" name="body" type="password" class="input-normal" placeholder="Enter post details..."></textarea>
+                    <textarea id="body" name="body" class="input-normal" placeholder="Enter post details..."></textarea>
                 </div>
                 <button type="submit" class="button-blue-2">
                     Save post
@@ -33,6 +33,7 @@
                     <div class="box-2 bg-gray-300 text-gray-800">
                         <h3>{{ $post['title'] }} by {{ $post->user->name }}</h3>
                         <p>{{ $post['body'] }}</p>
+                        <p class="button-blue-2"><a href="/edit-post/{{$post->id}}">Edit</a></p>
                     </div>
                 @endforeach
                 </div>
