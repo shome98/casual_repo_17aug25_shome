@@ -33,10 +33,17 @@
                     <div class="box-2 bg-gray-300 text-gray-800">
                         <h3>{{ $post['title'] }} by {{ $post->user->name }}</h3>
                         <p>{{ $post['body'] }}</p>
-                        <p class="button-blue-2"><a href="/edit-post/{{$post->id}}">Edit</a></p>
+                        <div class="flex-row-2">
+                            <p class="button-blue-2 text-center"><a href="/edit-post/{{ $post->id }}">Edit</a></p>
+                            <form action="/delete-post/{{ $post->id }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button class="button-red">Delete</button>
+                            </form>
+                        </div>
                     </div>
                 @endforeach
-                </div>
+            </div>
         </div>
     @else
         <form method="POST" action='/register'>
