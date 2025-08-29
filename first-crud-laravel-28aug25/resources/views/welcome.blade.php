@@ -1,5 +1,11 @@
 <x-layout title="Welcome😊">
     <h1 class="text-3xl text-center mb-6">Welcome to CRUD App</h1>
+    @auth
+       <p>Congrats you are logged in!💖</p>
+       <form action="/logout" method="POST">
+        @csrf
+        <button class="button-red">Log out</button></form>
+    @else
     <form method="POST" action='/register'>
         @csrf
         <div class="box-2">
@@ -23,4 +29,6 @@
             </button>
         </div>
     </form>
+    @endauth
+    
 </x-layout>
