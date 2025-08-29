@@ -3,9 +3,11 @@
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Models\Post;
 
 Route::get('/', function () {
-    return view('welcome');
+    $posts=Post::all();
+    return view('welcome',['posts'=>$posts]);
 });
 Route::post('/register',[UserController::class,'register']);
 Route::post('/logout',[UserController::class,'logout']);
