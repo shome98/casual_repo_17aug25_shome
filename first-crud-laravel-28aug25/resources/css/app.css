@@ -13,7 +13,7 @@ html,body{
     @apply bg-gray-800 text-gray-200
 }
 @utility small-box-col{
-    @apply flex flex-col items-center justify-center border-4 p-4 border-gray-400
+    @apply flex flex-col items-center justify-center border-4 p-4 border-gray-400 gap-2
 }
 @layer components{
   .button-blue{
@@ -36,5 +36,8 @@ html,body{
   }
   .box-2{
     @apply max-w-md mx-auto space-y-4 border-4 p-4 border-gray-400
+  }
+  .flex-row-2{
+    @apply flex flex-row items-center justify-center gap-2
   }
 }
