@@ -6,7 +6,10 @@ use App\Http\Controllers\UserController;
 use App\Models\Post;
 
 Route::get('/', function () {
-    $posts=Post::all();
+    $posts=[];
+    if (auth()->check()) {
+        $posts = auth()->user()->usersPosts()->latest()->get();
+    }
     return view('welcome',['posts'=>$posts]);
 });
 Route::post('/register',[UserController::class,'register']);
