@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "devone":"node --watch cursor_cli.js",
-    "devtwo":"node --watch cursor_cli_2.js"
+    "devtwo":"node --watch cursor_cli_2.js",
+    "dev3":"tsx --watch docker_ai.ts"
   },
   "keywords": [],
   "author": "",
