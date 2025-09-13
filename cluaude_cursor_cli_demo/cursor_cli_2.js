@@ -8,11 +8,16 @@ import { OpenAI } from "openai";
 //const model = "openai/gpt-oss-20b:fireworks-ai";
 const api_key =
   "";
+// const client = new OpenAI({
+//   baseURL: "https://openrouter.ai/api/v1",
+//   apiKey: api_key,
+// });
+// const model = "deepseek/deepseek-r1-0528:free";
 const client = new OpenAI({
-  baseURL: "https://openrouter.ai/api/v1",
+  baseURL: "http://localhost:12434/engines/llama.cpp/v1",
   apiKey: api_key,
 });
-const model = "deepseek/deepseek-r1-0528:free";
+const model = "ai/gemma3-qat:270M-F16";
 const Tools = {
   getWeatherInfo: getWeatherInfo,
   executeCommand: executeCommand,
